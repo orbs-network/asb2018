@@ -1,0 +1,12 @@
+*/**/.DS_Store
+*.log
+.vscode/
+/node_modules
+/dist
+/coverage
+/coverageEnv
+/coverage.json
+/allFiredEvents
+Unified.sol
+.idea
+package-lock.json

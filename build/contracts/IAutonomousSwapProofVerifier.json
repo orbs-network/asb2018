@@ -1,0 +1,180 @@
+{
+  "contractName": "IAutonomousSwapProofVerifier",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_resultsBlockHeader",
+          "type": "bytes"
+        },
+        {
+          "name": "_resultsBlockProof",
+          "type": "bytes"
+        },
+        {
+          "name": "_transactionReceipt",
+          "type": "bytes"
+        },
+        {
+          "name": "_transactionReceiptProof",
+          "type": "bytes32[]"
+        }
+      ],
+      "name": "processProof",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "networkType",
+              "type": "uint32"
+            },
+            {
+              "name": "virtualChainId",
+              "type": "uint64"
+            },
+            {
+              "name": "orbsContractName",
+              "type": "string"
+            },
+            {
+              "name": "from",
+              "type": "bytes20"
+            },
+            {
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "name": "tuid",
+              "type": "uint256"
+            }
+          ],
+          "name": "transferInEvent",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_packedProof",
+          "type": "bytes"
+        },
+        {
+          "name": "_transactionReceipt",
+          "type": "bytes"
+        }
+      ],
+      "name": "processPackedProof",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "networkType",
+              "type": "uint32"
+            },
+            {
+              "name": "virtualChainId",
+              "type": "uint64"
+            },
+            {
+              "name": "orbsContractName",
+              "type": "string"
+            },
+            {
+              "name": "from",
+              "type": "bytes20"
+            },
+            {
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "name": "tuid",
+              "type": "uint256"
+            }
+          ],
+          "name": "transferInEvent",
+          "type": "tuple"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_address",
+          "type": "bytes20"
+        }
+      ],
+      "name": "isOrbsAddressValid",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.0",
+  "updatedAt": "2018-12-25T21:12:19.068Z",
+  "devdoc": {
+    "methods": {
+      "isOrbsAddressValid(bytes20)": {
+        "details": "Checks Orbs address for correctness. Please note that this method can't be external (yet), since our current Solidity version doesn't support unbound parameters (e.g., bytes) in external interface methods.",
+        "params": {
+          "_address": "bytes20 The Orbs address to check."
+        }
+      },
+      "processPackedProof(bytes,bytes)": {
+        "details": "Parses and validates the raw transfer proof. Please note that this method can't be external (yet), since our current Solidity version doesn't support unbound parameters (e.g., bytes) in external interface methods.",
+        "params": {
+          "_packedProof": "bytes The raw proof (including the resultsBlockHeader, resultsBlockProof and",
+          "_transactionReceipt": "bytes The raw Transaction Receipt."
+        },
+        "return": "transferInEvent TransferInEvent The TransferIn event data."
+      },
+      "processProof(bytes,bytes,bytes,bytes32[])": {
+        "details": "Parses and validates the raw transfer proof. Please note that this method can't be external (yet), since our current Solidity version doesn't support unbound parameters (e.g., bytes) in external interface methods.",
+        "params": {
+          "_resultsBlockHeader": "bytes The raw Results Block Header.",
+          "_resultsBlockProof": "bytes The raw Results Block Proof.",
+          "_transactionReceipt": "bytes The raw Transaction Receipt."
+        },
+        "return": "transferInEvent TransferInEvent The TransferIn event data."
+      }
+    },
+    "title": "AutonomousSwapProofVerifier interface. Please note that we had to implement it as an abstract contract, rather than an interface, due to Solidity's inability to contain structs in interface and it's inability to support unbound parameters (e.g., bytes) in external interface methods"
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

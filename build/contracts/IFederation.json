@@ -1,0 +1,180 @@
+{
+  "contractName": "IFederation",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_member",
+          "type": "address"
+        }
+      ],
+      "name": "isMember",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getMembers",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getConsensusThreshold",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getFederationRevision",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_federationRevision",
+          "type": "uint256"
+        },
+        {
+          "name": "_member",
+          "type": "address"
+        }
+      ],
+      "name": "isMemberByRevision",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_federationRevision",
+          "type": "uint256"
+        }
+      ],
+      "name": "getMembersByRevision",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_federationRevision",
+          "type": "uint256"
+        }
+      ],
+      "name": "getConsensusThresholdByRevision",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.0.0",
+  "updatedAt": "2018-12-25T21:12:19.078Z",
+  "devdoc": {
+    "methods": {
+      "getConsensusThreshold()": {
+        "details": "Returns the required threshold for consensus."
+      },
+      "getConsensusThresholdByRevision(uint256)": {
+        "details": "Returns the required threshold for consensus by revision.",
+        "params": {
+          "_federationRevision": "uint The revision to query."
+        }
+      },
+      "getFederationRevision()": {
+        "details": "Returns the revision of the current federation."
+      },
+      "getMembers()": {
+        "details": "Returns the federation members."
+      },
+      "getMembersByRevision(uint256)": {
+        "details": "Returns the federation members by revision.",
+        "params": {
+          "_federationRevision": "uint The revision to query."
+        }
+      },
+      "isMember(address)": {
+        "details": "Returns whether a specific member exists in the federation.",
+        "params": {
+          "_member": "address The public address of the member to check."
+        }
+      },
+      "isMemberByRevision(uint256,address)": {
+        "details": "Returns whether a specific member exists in the federation by revision.",
+        "params": {
+          "_federationRevision": "uint The revision to query.",
+          "_member": "address The public address of the member to check."
+        }
+      }
+    },
+    "title": "Federation interface."
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}

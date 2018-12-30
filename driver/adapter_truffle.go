@@ -139,9 +139,12 @@ func (ta *truffleAdapter) run(args string, env ...string) []byte {
 	cmd := exec.Command("./node_modules/.bin/truffle", argsArr...)
 	cmd.Dir = ta.projectPath
 	cmd.Env = append(os.Environ(), env...)
-	out, err := combinedOutputWithStdoutPipe(cmd)
+	var out []byte
+	var err error
 	if ta.debug {
-		fmt.Println(string(out))
+		out, err = combinedOutputWithStdoutPipe(cmd)
+	} else {
+		out, err = cmd.CombinedOutput()
 	}
 	if err != nil {
 		panic(err.Error() + "\n" + string(out))

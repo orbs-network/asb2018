@@ -1,7 +1,7 @@
 package driver
 
 type OrbsAdapter interface {
-	DeployERC20Contract(orbsErc20ContractName string)
+	DeployERC20Contract(orbsErc20ContractName string, orbsAsbContractName string)
 	DeployASBContract(orbsAsbContractName string, orbsErc20ContractName string)
 	BindASBContractToEthereum(orbsAsbContractName string, ethereumAsbAddress string)
 	OrbsUserIdToHexAddress(orbsUserId string) (userAccountOnOrbsHex string)

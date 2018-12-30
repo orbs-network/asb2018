@@ -1,0 +1,10 @@
+{
+    "ContractName": "erc20proxy",
+    "MethodName": "asbBind",
+    "Arguments": [
+        {
+            "Type": "bytes",
+            "Value": "44AA79091FAD956d12086C5Ee782DDf3A8124549"
+        }
+    ]
+}

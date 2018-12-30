@@ -79,6 +79,10 @@ func (ta *truffleAdapter) TransferOut(ethereumErc20Address string, userAccountOn
 		"USER_ACCOUNT_ON_ETHEREUM="+userAccountOnEthereum,
 		"USER_TRANSFER_AMOUNT="+fmt.Sprintf("%d", userTransferAmount),
 	)
+	ta.run("exec ./truffle-scripts/allowance.js",
+		"ERC20_CONTRACT_ADDRESS="+ethereumErc20Address,
+		"USER_ACCOUNT_ON_ETHEREUM="+userAccountOnEthereum,
+	)
 	bytes := ta.run("exec ./truffle-scripts/transferOut.js",
 		"USER_ACCOUNT_ON_ETHEREUM="+userAccountOnEthereum,
 		"USER_ACCOUNT_ON_ORBS="+userAccountOnOrbs,
@@ -91,6 +95,10 @@ func (ta *truffleAdapter) TransferOut(ethereumErc20Address string, userAccountOn
 	if err != nil {
 		panic(err.Error() + "\n" + string(bytes))
 	}
+	ta.run("exec ./truffle-scripts/allowance.js",
+		"ERC20_CONTRACT_ADDRESS="+ethereumErc20Address,
+		"USER_ACCOUNT_ON_ETHEREUM="+userAccountOnEthereum,
+	)
 	return out.TxHash, ta.GetBalance(ethereumErc20Address, userAccountOnEthereum)
 }
 

@@ -4,6 +4,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
+	"github.com/orbs-network/orbs-network-go/crypto/hash"
 	"io/ioutil"
 	"os/exec"
 	"strconv"
@@ -29,8 +30,10 @@ type gammaCliAdapter struct {
 	env   string
 }
 
-func (gc *gammaCliAdapter) DeployERC20Contract(orbsErc20ContractName string) {
+func (gc *gammaCliAdapter) DeployERC20Contract(orbsErc20ContractName string, orbsAsbContractName string) {
 	gc.run("deploy ./contracts/_OrbsERC20Proxy/contract.go -name " + orbsErc20ContractName + " -signer user1")
+	hexaddress := hex.EncodeToString(hash.CalcRipemd160Sha256([]byte(orbsAsbContractName)))
+	gc.run("send-tx ./gammacli-jsons/erc20proxy-asb-bind.json -signer user1 -name " + orbsErc20ContractName + " -arg1 " + hexaddress)
 }
 
 func (gc *gammaCliAdapter) DeployASBContract(orbsAsbContractName string, orbsErc20ContractName string) {

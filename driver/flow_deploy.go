@@ -10,7 +10,7 @@ func RunDeployFlow(t *testing.T, config *Config, orbs OrbsAdapter, ethereum Ethe
 	require.NotEmpty(t, config.UserAccountOnEthereum, "UserAccountOnEthereum in configuration is empty, did you forget to update it?")
 
 	logStage("Deploying Orbs ERC20 contract...")
-	orbs.DeployERC20Contract(config.OrbsErc20ContractName)
+	orbs.DeployERC20Contract(config.OrbsErc20ContractName, config.OrbsAsbContractName)
 	logStageDone("OrbsName=%s", config.OrbsErc20ContractName)
 
 	logStage("Deploying Orbs ASB contract...")

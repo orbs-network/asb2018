@@ -130,9 +130,12 @@ func (gc *gammaCliAdapter) run(args string, env ...string) []byte {
 	}
 	argsArr := strings.Split(args, " ")
 	cmd := exec.Command("gamma-cli", argsArr...)
-	out, err := combinedOutputWithStdoutPipe(cmd)
+	var out []byte
+	var err error
 	if gc.debug {
-		fmt.Println(string(out))
+		out, err = combinedOutputWithStdoutPipe(cmd)
+	} else {
+		out, err = cmd.CombinedOutput()
 	}
 	if err != nil {
 		panic(err.Error() + "\n" + string(out))
